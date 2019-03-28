@@ -1,0 +1,150 @@
+<CustLabel@Label>:
+    color: 0, 0, 0, 1
+
+<CustomPopup>:
+    size_hint: .5, .5
+    auto_dismiss: False
+    title: "The Popup"
+    Button:
+        text: "Close"
+        on_press: root.dismiss()
+
+SampBoxLayout:
+ 
+<SampBoxLayout>:
+    orientation:"vertical"
+    display: entry
+    id:Final
+    padding: 10
+    spacing: 15
+ 
+    BoxLayout:
+        orientation:"horizontal"
+        height:10
+
+        TextInput:
+            id: entry
+            font_size: 35
+            multiline: False
+        Button:
+            text: "Display Signal"
+            on_press: Final.disp(1)
+    BoxLayout:
+        orientation:"horizontal"
+        height:10
+        
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint_x: .15
+
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint_x: .25
+            CustLabel:
+                text: "On / Off"        
+            Switch:
+                id: switch_id
+                on_active: root.switch_on(self, self.active)
+
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint_x: .15
+ 
+    BoxLayout:
+        orientation: "horizontal"
+        height: 30
+ 
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint_x: .15
+            CustLabel:
+                text: "Speed Adjust"
+ 
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint_x: .25
+            CustLabel:
+                text: str(slider_id.value)
+ 
+            # Define the min, max, starting value and how
+            # much the value changes with each move
+            Slider:
+                id: slider_id
+                min: 0
+                max: 10
+                value: 0
+                step: 1
+                on_touch_move: root.slider_val(self,self.value)
+
+    BoxLayout:
+        orientation: "horizontal"
+        height: 30
+
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint_x: .15
+            CustLabel:
+                text: "Altitude"
+
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint_x: .25
+            CustLabel:
+                text: str(slider_altitude.value)
+ 
+            # Define the min, max, starting value and how
+            # much the value changes with each move
+            Slider:
+                id: slider_altitude
+                min: 0
+                max: 2
+                value: 0
+                step: 1
+                on_touch_move: root.slider_altitude(self,self.value)
+
+    BoxLayout:
+        orientation: "horizontal"
+        height: 30
+
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint_x: .15
+            CustLabel:
+                text: "Direction"
+
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint_x: .25
+            CustLabel:
+                text: str(slider_direction.value)
+ 
+            # Define the min, max, starting value and how
+            # much the value changes with each move
+            Slider:
+                id: slider_direction
+                min: 0
+                max: 2
+                value: 0
+                step: 1
+                on_touch_move: root.slider_direction(self,self.value)
+    
+    BoxLayout:
+        orientation:"horizontal"
+        height:10
+        
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint_x: .15
+
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint_x: .25       
+            Button:
+                id: switch_id
+                text: "Send Data"
+                on_press: root.send_data()
+
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint_x: .15
+    
