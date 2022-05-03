@@ -1,2 +1,2 @@
 # Zeppelin
-The repository contains control code of Arduino and Python code for Xbee and desktop GUI for communication
+The repository contains control code of Arduino and Python code for desktop GUI for communication over Xbee Protocol
